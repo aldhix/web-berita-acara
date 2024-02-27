@@ -11,19 +11,20 @@ use Illuminate\Http\Request;
 
 class BeritaAcaraV1 extends Controller
 {
-    public function show(Jadwal $jadwal,Ruang $ruang){
-        $berita_acara = BeritaAcara::firstOrCreate([
+    public function show(Request $request, Jadwal $jadwal,Ruang $ruang){
+        
+        $beritaAcara = BeritaAcara::firstOrCreate([
             'jadwal_id'=>$jadwal->id,
             'ruang_id'=>$ruang->id
         ]);
-        
-        $berita_acara->load('jadwal');
-        $berita_acara->load('ruang');
-        $berita_acara->load('pengawas1');
-        $berita_acara->load('pengawas2');
-        $berita_acara->loadCount('peserta_hadir');
-        $berita_acara->loadCount('peserta_absen');
 
-        return new BeritaAcaraResource($berita_acara);
+        $beritaAcara->load('jadwal');
+        $beritaAcara->load('ruang');
+        $beritaAcara->load('pengawas1');
+        $beritaAcara->load('pengawas2');
+        $beritaAcara->loadCount('peserta_hadir');
+        $beritaAcara->loadCount('peserta_absen');
+
+        return new BeritaAcaraResource($beritaAcara);
     }
 }
