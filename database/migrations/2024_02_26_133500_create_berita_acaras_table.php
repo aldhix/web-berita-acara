@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreignId('ruang_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('pengawas1_id')->nullable()->constrained('gurus','id')->nullOnDelete()->cascadeOnUpdate();
             $table->foreignId('pengawas2_id')->nullable()->constrained('gurus','id')->nullOnDelete()->cascadeOnUpdate();
-            $table->string('kelas');
             $table->string('catatan')->nullable();
             //$table->timestamps();
         });

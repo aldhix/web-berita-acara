@@ -24,7 +24,6 @@ class DatabaseSeeder extends Seeder
             'ruang_id'=>1,
             'pengawas1_id'=>5,
             'pengawas2_id'=>6,
-            'kelas'=>'XII TGP A',
             'catatan'=>'Tertib dan aman'
         ]);
 

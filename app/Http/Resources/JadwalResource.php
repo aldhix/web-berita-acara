@@ -20,8 +20,8 @@ class JadwalResource extends JsonResource
             'tanggal'=>$this->tanggal,
             'jam_ke'=>$this->jam_ke,
             'sesi'=>$this->sesi,
-            'waktu_mulai'=>$this->waktu_mulai,
-            'waktu_selesai'=>$this->waktu_selesai,
+            'waktu_mulai'=> substr($this->waktu_mulai, 0, 5),
+            'waktu_selesai'=> substr($this->waktu_selesai, 0, 5),
             'nama_mapel'=>$this->nama_mapel
         ];
     }

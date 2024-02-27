@@ -18,7 +18,6 @@ class BeritaAcara extends Model
         'ruang_id',
         'pengawas1_id',
         'pengawas2_id',
-        'kelas',
         'catatan'
     ];
 
@@ -34,12 +33,12 @@ class BeritaAcara extends Model
 
     public function pengawas1(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'pengawas1_id', 'id');
+        return $this->belongsTo(Guru::class, 'pengawas1_id', 'id');
     }
 
     public function pengawas2(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'pengawas2_id', 'id');
+        return $this->belongsTo(Guru::class, 'pengawas2_id', 'id');
     }
 
     public function peserta_hadir(): HasMany
