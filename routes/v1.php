@@ -14,6 +14,7 @@ Route::prefix('list')->group(function () {
 });
 
 Route::get('berita_acara/jadwal/{jadwal}/ruang/{ruang}', [BeritaAcaraV1::class, 'show']);
+Route::post('berita_acara/{berita_acara}/catatan', [BeritaAcaraV1::class, 'catatan']);
 Route::resource('berita_acara.peserta_hadir', PesertaHadirV1::class)->only('index', 'store', 'destroy');
 Route::resource('berita_acara.peserta_absen', PesertaAbsenV1::class)->only('index', 'store', 'destroy');
 Route::resource('berita_acara.pengawas', PengawasV1::class)->only('store');

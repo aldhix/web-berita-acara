@@ -27,4 +27,18 @@ class BeritaAcaraV1 extends Controller
 
         return new BeritaAcaraResource($beritaAcara);
     }
+
+    public function catatan(Request $request, BeritaAcara $beritaAcara){
+        $request->validate([
+            'catatan'=>['required','max:250']
+        ]);
+
+        $beritaAcara->update([
+            'catatan'=>$request->catatan
+        ]);
+
+        return response()->json([
+            'message'=>'successfully'
+        ]);
+    }
 }

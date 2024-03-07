@@ -35,7 +35,9 @@ class PesertaHadirV1 extends Controller
             'nama' => $request->nama
         ]);
 
-        return new PesertaHadirResource($pesertaHadir);
+        return response()->json([
+            'message'=>'successfully'
+        ]);
     }
 
     public function destroy(BeritaAcara $beritaAcara, PesertaHadir $pesertaHadir)

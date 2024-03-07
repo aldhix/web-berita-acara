@@ -22,9 +22,8 @@ class PengawasV1 extends Controller
             'pengawas2_id' => $request->pengawas2,
         ]);
 
-        $beritaAcara->load('pengawas1');
-        $beritaAcara->load('pengawas2');
-
-        return new BeritaAcaraResource($beritaAcara);
+        return response()->json([
+            'message'=>'successfully'
+        ]);
     }
 }
