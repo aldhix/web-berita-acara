@@ -27,7 +27,7 @@ class PesertaHadirV1 extends Controller
     {
 
         $request->validate([
-            'nama' => 'required|max:150'
+            'nama' => 'required|max:250'
         ]);
 
         $pesertaHadir = PesertaHadir::create([

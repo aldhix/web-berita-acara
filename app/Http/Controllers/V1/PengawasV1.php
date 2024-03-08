@@ -14,7 +14,7 @@ class PengawasV1 extends Controller
 
         $request->validate([
             'pengawas1' => ['required', 'exists:gurus,id'],
-            'pengawas2' => ['required', 'exists:gurus,id'],
+            'pengawas2' => ['nullable', 'exists:gurus,id'],
         ]);
 
         $beritaAcara->update([
