@@ -20,7 +20,7 @@ class ListController extends Controller
 
     public function jadwal(Request $request)
     {
-        $jadwal = Jadwal::orderBy('id')->get();
+        $jadwal = Jadwal::where('aktif',1)->orderBy('id')->get();
         return JadwalResource::collection($jadwal);
     }
 

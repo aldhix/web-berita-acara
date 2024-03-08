@@ -20,6 +20,7 @@ return new class extends Migration
             $table->time('waktu_mulai');
             $table->time('waktu_selesai');
             $table->string('nama_mapel');
+            $table->boolean('aktif')->default(1);
             //$table->timestamps();
         });
     }

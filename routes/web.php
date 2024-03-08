@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExportController;
+use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ToolsController;
 use Illuminate\Foundation\Application;
@@ -38,6 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/tools/clear',[ToolsController::class,'clear'])->name('tools.clear');
     Route::get('/download/jadwal/{jadwal}/daftar_hadir/',[ExportController::class,'daftarHadir'])->name('export.daftar_hadir');
     Route::get('/download/jadwal/{jadwal}/berita_acara/',[ExportController::class,'daftarAbsen'])->name('export.berita_acara');
+    Route::put('jadwal/{jadwal}/update-aktif',[JadwalController::class,'updateAktif'])->name('jadwal.update.aktif');
 });
 
 require __DIR__.'/auth.php';

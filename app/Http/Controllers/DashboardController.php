@@ -15,7 +15,8 @@ class DashboardController extends Controller
         return Inertia::render('Dashboard', [
             'jadwals' => $jadwals,
             'linkDownloadDaftarHadir'=>route('export.daftar_hadir',['jadwal'=>':jadwal']),
-            'linkDownloadBeritaAcara'=>route('export.berita_acara',['jadwal'=>':jadwal'])
+            'linkDownloadBeritaAcara'=>route('export.berita_acara',['jadwal'=>':jadwal']),
+            'linkUpdateAktif'=>route('jadwal.update.aktif',['jadwal'=>':jadwal'])
         ]);
     }
 }

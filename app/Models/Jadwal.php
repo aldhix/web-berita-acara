@@ -19,7 +19,8 @@ class Jadwal extends Model
         'sesi',
         'waktu_mulai',
         'waktu_selesai',
-        'nama_mapel'
+        'nama_mapel',
+        'aktif'
     ];
 
     public function berita_acara(): HasMany
