@@ -42,46 +42,38 @@ function updateAktif(id, aktif) {
 
   <AuthenticatedLayout>
     <template #header>
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Dashboard
-      </h2>
+      <h2 class="title">Dashboard</h2>
     </template>
     <div class="py-12">
-      <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
+      <div class="content">
         <BarButtons />
-        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-          <table
-            class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
-          >
-            <thead
-              class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
-            >
+        <div class="content-box">
+          <table class="table">
+            <thead class="thead">
               <tr>
-                <th scope="col" class="px-6 py-3">#</th>
-                <th scope="col" class="px-6 py-3">Hari</th>
-                <th scope="col" class="px-6 py-3">Waktu</th>
-                <th scope="col" class="px-6 py-3"></th>
-                <th scope="col" class="px-6 py-3">Mata Pelajaran</th>
-                <th scope="col" class="px-6 py-3"></th>
+                <th scope="col" class="cell-title">#</th>
+                <th scope="col" class="cell-title">Hari</th>
+                <th scope="col" class="cell-title">Waktu</th>
+                <th scope="col" class="cell-title"></th>
+                <th scope="col" class="cell-title">Mata Pelajaran</th>
+                <th scope="col" class="cell-title"></th>
               </tr>
             </thead>
             <tbody>
               <template v-for="(row, index) in jadwals" :key="row.id">
-                <tr
-                  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
-                >
-                  <td class="px-6 py-4" v-html="index + 1"></td>
-                  <td class="px-6 py-4" v-html="row.hari"></td>
-                  <td class="px-6 py-4">
+                <tr class="row-hover">
+                  <td class="cell" v-html="index + 1"></td>
+                  <td class="cell" v-html="row.hari"></td>
+                  <td class="cell">
                     {{ row.waktu_mulai.substring(0, 5) }} s.d
                     {{ row.waktu_selesai.substring(0, 5) }}
                   </td>
-                  <td class="px-6 py-4">
+                  <td class="cell">
                     <button
                       @click="updateAktif(row.id, row.aktif)"
                       v-if="row.aktif"
                       type="button"
-                      class="px-3 py-2 text-xs font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                      class="btn-sm btn-green"
                     >
                       Aktif
                     </button>
@@ -89,27 +81,27 @@ function updateAktif(id, aktif) {
                       @click="updateAktif(row.id, row.aktif)"
                       v-else
                       type="button"
-                      class="px-3 py-2 text-xs font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+                      class="btn-sm btn-red"
                     >
                       Off
                     </button>
                   </td>
                   <th
-                    class="px-6 py-4 font-medium text-gray-900 dark:text-white"
+                    class="cell font-medium text-gray-900 dark:text-white"
                     v-html="row.nama_mapel"
                   ></th>
-                  <td class="px-6 py-4">
+                  <td class="cell">
                     <a
                       target="_blank"
                       :href="setUrlDownloadDaftarHadir(row.id)"
-                      class="px-3 py-2 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                      class="btn-sm btn-blue"
                     >
                       Daftar Hadir
                     </a>
                     <a
                       target="_blank"
                       :href="setUrlDownloadBeritaAcara(row.id)"
-                      class="ms-1 px-3 py-2 text-xs font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800"
+                      class="ms-1 btn-sm btn-green"
                     >
                       Berita Acara
                     </a>
